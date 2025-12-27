@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <style>
+        body{
+            background-color:rgb(129, 216, 216);
+            font-style: italic;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color:cornsilk;
+        }
+        section{
+            display: grid;
+            justify-items: center;
+            gap: 20px;
+            font-size:40px;;
+        }
+        button{
+            height: 40px;
+            width: 100px;
+            background-color: cornsilk;
+            font-style: italic;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color:rgb(129, 216, 216);
+            border-radius: 15px;
+            border-style: none;
+        }
+        button:hover{
+            background-color: rgb(129, 216, 216);
+            color: cornsilk;
+            transition-duration: 0.5s;
+        }
+        div{
+            display: flex;
+            gap: 30px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Color Changer</h1>
+        <div>
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+        </div>
+    </section>
+    <script>
+        let btn_str=document.getElementById("start");
+        let btn_stp=document.getElementById("stop");
+        let num=0;
+        let myInterval;
+        btn_str.addEventListener("click" , function(){
+           myInterval = setInterval( changer , 1000);
+        });
+        btn_stp.addEventListener("click" , function(){
+            clearInterval(myInterval);
+        });
+        function changer(){
+            num++;
+            if (num==1){
+                document.body.style.backgroundColor="red";
+            }else if (num==2){
+                document.body.style.backgroundColor="blue";
+            }else if (num==3){
+                document.body.style.backgroundColor="green";
+            }else if (num==4){
+                document.body.style.backgroundColor="yellow";
+                num=0;
+            };
+            
+        };
+    </script>
+</body>
+</html>
